@@ -1,0 +1,105 @@
+$first-color: #34b9a9;
+$first-color-light: #32bea6;
+
+$second-color: #f28454;
+$second-color-light: #f79489;
+
+$third-color: #245c4c;
+$third-color-light: #81b622;
+
+$fourth-color: #040404;
+$fifth-color: #111111;
+$sixth-color: #5881f8;
+$seven-color: #4498ff;
+$eight-color: #09bda0;
+$input-color: #4c4c4c;
+$nine-color: #85919a;
+
+$title-color-light: #4674c6;
+$title-color: #414c84;
+$title-color-dark: #242f67;
+
+$orrange_color: #ffae00;
+
+$subtitle-color: #8fc53b;
+$para-color: #282a6a;
+$paragraph-color: #6b6b6b;
+
+$logo-color: #7980a4;
+
+$logo-secondary-color: #bedd8e;
+
+$menu-color: #93c744;
+
+$white-color: #ffffff;
+$brand-color: #00bf9a;
+$filter-background: #f5f5f5;
+$clear-btn: #6b6b6b;
+$select-para: #15212c;
+$btn-act: #2ea18c;
+$card-border: #ddd;
+$shape-border: #5bc0de;
+$orange-btn: #ffae00;
+$black-color: #000000;
+$content-color: #444444;
+$red-color: #ca0202;
+$blue-color: #52b0fd;
+$details-btn: #f8f7fc;
+$md-title: #312929;
+$pink-color: #fd5d93;
+$ash-color: #f3f2f7;
+$new_black: #020101;
+$new_orange: #fb6e51;
+$light-color: #f8f8f8;
+
+$mac: 4000px;
+$desktop-max: 1200px;
+$desktop-pro: 1199px;
+$desktop: 992px;
+$ipad-pro: 991px;
+$ipad: 768px;
+$mobile: 767px;
+$mobile-mini: 540px;
+$galaxy-pro: 500px;
+$galaxy-micro: 539px;
+$galaxy: 320px;
+
+$dejan-color1: #ff0000;
+$dejan-color2: #171796;
+
+@mixin ipad-pro {
+  @media (max-width: #{$ipad-pro}) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (max-width: #{$ipad-pro}) and (min-width: #{$ipad}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: #{$mobile}) and (min-width: #{$mobile-mini}) {
+    @content;
+  }
+}
+@mixin galaxy {
+  @media (max-width: #{$galaxy-micro}) and (min-width: #{$galaxy}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (max-width: #{$desktop-pro}) and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin mac {
+  @media (max-width: #{$mac}) and (min-width: #{$desktop-max}) {
+    @content;
+  }
+}
+@mixin galaxy-pro {
+  @media (max-width: #{$galaxy-micro}) and (min-width: #{$galaxy-pro}) {
+    @content;
+  }
+}
+
