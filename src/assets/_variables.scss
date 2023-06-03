@@ -1,12 +1,9 @@
 $first-color: #34b9a9;
 $first-color-light: #32bea6;
-
 $second-color: #f28454;
 $second-color-light: #f79489;
-
 $third-color: #245c4c;
 $third-color-light: #81b622;
-
 $fourth-color: #040404;
 $fifth-color: #111111;
 $sixth-color: #5881f8;
@@ -14,33 +11,22 @@ $seven-color: #4498ff;
 $eight-color: #09bda0;
 $input-color: #4c4c4c;
 $nine-color: #85919a;
-
 $title-color-light: #4674c6;
 $title-color: #414c84;
 $title-color-dark: #242f67;
-
 $orrange_color: #ffae00;
-
 $subtitle-color: #8fc53b;
-$para-color: #282a6a;
 $paragraph-color: #6b6b6b;
-
 $logo-color: #7980a4;
-
 $logo-secondary-color: #bedd8e;
-
 $menu-color: #93c744;
-
-$white-color: #ffffff;
+$nav-color: #ffffff;
 $brand-color: #00bf9a;
 $filter-background: #f5f5f5;
-$clear-btn: #6b6b6b;
 $select-para: #15212c;
 $btn-act: #2ea18c;
 $card-border: #ddd;
 $shape-border: #5bc0de;
-$orange-btn: #ffae00;
-$black-color: #000000;
 $content-color: #444444;
 $red-color: #ca0202;
 $blue-color: #52b0fd;
@@ -50,23 +36,63 @@ $pink-color: #fd5d93;
 $ash-color: #f3f2f7;
 $new_black: #020101;
 $new_orange: #fb6e51;
-$light-color: #f8f8f8;
+$sea-green: #071c1f;
 
 $mac: 4000px;
 $desktop-max: 1200px;
+$desktop-max-1: 1201px;
 $desktop-pro: 1199px;
 $desktop: 992px;
 $ipad-pro: 991px;
+$width850: 850px;
+$width849: 849px;
 $ipad: 768px;
 $mobile: 767px;
+$below650: 650px;
+$mobile-large: 600px;
 $mobile-mini: 540px;
 $galaxy-pro: 500px;
 $galaxy-micro: 539px;
+$galaxy-macro: 400px;
 $galaxy: 320px;
+$mac-min: 1701px;
+$mac-max: 2000px;
+$pro: 2001px;
+$gal: 3000px;
+$gal-pro: 3001px;
+$max: 1550px;
+$mini: 1400px;
+$abc: 2500px;
+$xyz: 2501px;
+$bg_sc: 3501px;
+$sm_sc: 3500px;
+$bootstrap_mobile: 575px;
+$bootstrap_small_mobile: 450px;
+$pixel680: 680px;
+$muiSm: 960px;
+$muiSmBelow: 959px;
+$muiMdEnd: 1279px;
 
-$dejan-color1: #ff0000;
-$dejan-color2: #171796;
-
+@mixin bg_sc {
+  @media (max-width: #{$mac}) and (min-width: #{$bg_sc}) {
+    @content;
+  }
+}
+@mixin sm_sc {
+  @media (max-width: #{$sm_sc}) and (min-width: #{$gal-pro}) {
+    @content;
+  }
+}
+@mixin gal-y {
+  @media (max-width: #{$abc}) and (min-width: #{$pro}) {
+    @content;
+  }
+}
+@mixin gal-x {
+  @media (max-width: #{$gal}) and (min-width: #{$xyz}) {
+    @content;
+  }
+}
 @mixin ipad-pro {
   @media (max-width: #{$ipad-pro}) {
     @content;
@@ -102,4 +128,201 @@ $dejan-color2: #171796;
     @content;
   }
 }
+@mixin mac-min {
+  @media (max-width: #{$mac}) and (min-width: #{$mac-min}) {
+    @content;
+  }
+}
+@mixin gal-pro {
+  @media (max-width: #{$mac}) and (min-width: #{$gal-pro}) {
+    @content;
+  }
+}
+@mixin gal {
+  @media (max-width: #{$gal}) and (min-width: #{$pro}) {
+    @content;
+  }
+}
+@mixin pro {
+  @media (max-width: #{$mac-max}) and (min-width: #{$mac-min}) {
+    @content;
+  }
+}
+@mixin max {
+  @media (max-width: #{$max}) and (min-width: #{$desktop-max}) {
+    @content;
+  }
+}
+@mixin mini {
+  @media (max-width: #{$mini}) and (min-width: #{$desktop-max}) {
+    @content;
+  }
+}
+@mixin between1400to2000 {
+  @media (max-width: #{$mac-max}) and (min-width: #{$mini}) {
+    @content;
+  }
+}
+@mixin mini-1 {
+  @media (max-width: #{$mini}) and (min-width: #{$desktop-max-1}) {
+    @content;
+  }
+}
+@mixin abc {
+  @media (max-width: #{$abc}) and (min-width: #{$mini}) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: #{$desktop-pro}) and (min-width: #{$ipad}) {
+    @content;
+  }
+}
+@mixin ipad-mini {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin ipad-max {
+  @media (max-width: #{$max}) {
+    @content;
+  }
+}
+@mixin bellowDesktop {
+  @media (max-width: #{$desktop-max}) {
+    @content;
+  }
+}
+@mixin betweenDesktopTab {
+  @media (max-width: #{$desktop-max}) and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin bootstrap_mobile_device {
+  @media (max-width: #{$bootstrap_mobile}) {
+    @content;
+  }
+}
+@mixin between576to991 {
+  @media (max-width: 991px) and (min-width: 576px) {
+    @content;
+  }
+}
+@mixin between576toipad {
+  @media (max-width: $ipad) and (min-width: 576px) {
+    @content;
+  }
+}
+@mixin bootstrap_small_mobile_device {
+  @media (max-width: #{$bootstrap_small_mobile}) {
+    @content;
+  }
+}
+@mixin between1500to2000 {
+  @media (max-width: #{$mac-max}) and (min-width: #{$max}) {
+    @content;
+  }
+}
+@mixin between400to539 {
+  @media (max-width: #{$galaxy-micro}) and (min-width: #{$galaxy-macro}) {
+    @content;
+  }
+}
 
+@mixin between850to991 {
+  @media (max-width: #{$ipad-pro}) and (min-width: #{$width850}) {
+    @content;
+  }
+}
+@mixin below850 {
+  @media (max-width: #{$width850}) {
+    @content;
+  }
+}
+@mixin between768to849 {
+  @media (max-width: #{$width849}) and (min-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin between320to599 {
+  @media (max-width: #{$mobile-large}) and (min-width: #{$galaxy}) {
+    @content;
+  }
+}
+@mixin bellow600 {
+  @media (max-width: #{$mobile-large}) {
+    @content;
+  }
+}
+@mixin below400 {
+  @media (max-width: #{$galaxy-macro}) {
+    @content;
+  }
+}
+@mixin below500 {
+  @media (max-width: #{$galaxy-pro}) {
+    @content;
+  }
+}
+@mixin below680 {
+  @media (max-width: #{$pixel680}) {
+    @content;
+  }
+}
+@mixin below650 {
+  @media (max-width: #{$below650}) {
+    @content;
+  }
+}
+@mixin desktopToMini {
+  @media (max-width: #{$mini}) and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin muiMedium {
+  @media (max-width: #{$muiMdEnd}) and (min-width: #{$muiSm}) {
+    @content;
+  }
+}
+@mixin below959 {
+  @media (max-width: #{$muiSmBelow}) {
+    @content;
+  }
+}
+@mixin between960to776 {
+  @media (max-width: #{$muiSmBelow}) and (min-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin between960to1199 {
+  @media (max-width: #{$desktop-pro}) and (min-width: #{$muiSm}) {
+    @content;
+  }
+}
+@mixin between1401to1700 {
+  @media (max-width: 1700px) and (min-width: 1401px) {
+    @content;
+  }
+}
+
+@keyframes shrink-bounce {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@mixin lineIndicator($line) {
+  -webkit-line-clamp: $line;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+}
