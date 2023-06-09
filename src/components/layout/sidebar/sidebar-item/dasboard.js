@@ -3,6 +3,7 @@ export const dashboardModule = [
     icon: 'tabler:chart-pie-2',
     module: 'Dashboard',
     link: '/dashboard',
+    subModule: [],
   },
   {
     icon: 'tabler:chart-pie-2',
@@ -10,13 +11,15 @@ export const dashboardModule = [
     subModule: [
       {
         icon: 'tabler:chart-pie-2',
-        module: 'Shop Type',
+        subModuleName: 'Shop Type',
         link: '/shop-type',
+        innerSubModule: [],
       },
       {
         icon: 'tabler:chart-pie-2',
-        module: 'Service Type',
+        subModuleName: 'Service Type',
         link: '/service-type',
+        innerSubModule: [],
       },
     ],
   },

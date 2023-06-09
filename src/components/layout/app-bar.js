@@ -4,6 +4,9 @@ import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar from '@mui/material/AppBar';
 import { styled, useTheme } from '@mui/material/styles';
+import { BiCircle } from 'react-icons/bi';
+import { LuCircleDot } from 'react-icons/lu';
+
 const AppBar = ({ handleDrawerOpen, drawerWidth, open }) => {
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -24,7 +27,7 @@ const AppBar = ({ handleDrawerOpen, drawerWidth, open }) => {
   }));
 
   return (
-    <AppBar position="fixed" open={open}>
+    <AppBar position="fixed" open={open} sx={{ backgroundColor: '#101618' }}>
       <Toolbar>
         <IconButton
           color="inherit"
@@ -33,10 +36,9 @@ const AppBar = ({ handleDrawerOpen, drawerWidth, open }) => {
           edge="start"
           sx={{
             marginRight: 5,
-            ...(open && { display: 'none' }),
           }}
         >
-          <MenuIcon />
+          {open ? <LuCircleDot /> : <BiCircle />}
         </IconButton>
         <Typography
           variant="h6"

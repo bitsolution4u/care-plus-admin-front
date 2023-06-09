@@ -3,26 +3,14 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import AppBar from './app-bar';
 import LeftSideBar from './left-side-drawer';
+import Image from 'next/image';
+import logoImage from '../../assets/img/demo-logo.png';
 
-const drawerWidth = 240;
+const drawerWidth = 270;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -76,11 +64,32 @@ export default function LeftSideDrawer({ children }) {
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
-    setOpen(true);
+    setOpen((prev) => !prev);
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen((prev) => !prev);
+  };
+  const [activeModule, setActiveModule] = React.useState([]);
+  const [activeSubModule, setActiveSubModule] = React.useState([]);
+
+  const handleActiveModule = (name) => {
+    console.log({ name });
+    if (activeModule.includes(name)) {
+      setActiveModule([]);
+    } else {
+      setActiveModule([name]);
+    }
+    setActiveSubModule([]);
+  };
+
+  const handleActiveSubModule = (name) => {
+    console.log({ name });
+    if (activeSubModule.includes(name)) {
+      setActiveSubModule([]);
+    } else {
+      setActiveSubModule([name]);
+    }
   };
 
   return (
@@ -91,43 +100,28 @@ export default function LeftSideDrawer({ children }) {
         handleDrawerOpen={handleDrawerOpen}
         drawerWidth={drawerWidth}
       />
-      <Drawer variant="permanent" open={open}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        className="drawer-main-section"
+        PaperProps={{
+          sx: {
+            backgroundColor: '#101618',
+          },
+        }}
+      >
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
+          <Image src={logoImage} alt="logo" width={220} />
         </DrawerHeader>
-        <Divider />
-        <LeftSideBar open={open} />
-        <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
+        <Divider sx={{ borderColor: '#cbcbcb1f' }} />
+        <LeftSideBar
+          open={open}
+          activeModule={activeModule}
+          activeSubModule={activeSubModule}
+          handleActiveModule={handleActiveModule}
+          handleActiveSubModule={handleActiveSubModule}
+        />
+        <Divider sx={{ borderColor: '#cbcbcb1f' }} />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* <DrawerHeader className="drawer-header" /> */}

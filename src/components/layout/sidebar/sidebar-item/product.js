@@ -1,56 +1,61 @@
 export const productModule = [
   {
     icon: 'tabler:chart-pie-2',
-    module: 'Products',
+    module: 'Online Whole Sale Order',
     subModule: [
       {
         icon: 'tabler:chart-pie-2',
-        module: 'Grocery',
+        subModuleName: 'Online Whole Sale Order',
         innerSubModule: [
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Brand & Group',
+            innerName: 'Brand & Group',
             link: '/brand-group',
           },
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Model & Size',
+            innerName: 'Model & Size',
             link: '/model-size',
           },
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Unit & Origin',
+            innerName: 'Unit & Origin',
             link: '/unit-origin',
           },
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Type & Sub Type',
+            innerName: 'Type & Sub Type',
+            link: '/type-subtype',
+          },
+          {
+            icon: 'tabler:chart-pie-2',
+            innerName: 'Print Delivery Address',
             link: '/type-subtype',
           },
         ],
       },
       {
         icon: 'tabler:chart-pie-2',
-        module: 'Medicine',
+        subModuleName: 'Medicine',
         innerSubModule: [
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Brand & Group',
+            innerName: 'Brand & Group',
             link: '/brand-group',
           },
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Model & Size',
+            innerName: 'Model & Size',
             link: '/model-size',
           },
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Unit & Origin',
+            innerName: 'Unit & Origin',
             link: '/unit-origin',
           },
           {
             icon: 'tabler:chart-pie-2',
-            module: 'Type & Sub Type',
+            innerName: 'Type & Sub Type',
             link: '/type-subtype',
           },
         ],
