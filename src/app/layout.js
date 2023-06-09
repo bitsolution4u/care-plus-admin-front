@@ -1,6 +1,6 @@
+import LeftSideDrawer from '@/components/layout/layout';
 import './globals.css';
 import { Inter } from 'next/font/google';
-import LeftSideDrawer from '@/components/left-side-drawer';
 
 const inter = Inter({ subsets: ['latin'] });
 
