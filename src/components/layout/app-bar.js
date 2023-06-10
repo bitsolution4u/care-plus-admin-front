@@ -1,9 +1,9 @@
 'use client';
 import { IconButton, Toolbar, Typography } from '@mui/material';
 import React from 'react';
+
 import MuiAppBar from '@mui/material/AppBar';
 import { styled, useTheme } from '@mui/material/styles';
-import { BiCircle } from 'react-icons/bi';
 import { LuCircleDot } from 'react-icons/lu';
 
 const AppBar = ({ handleDrawerOpen, drawerWidth, open }) => {
@@ -35,9 +35,10 @@ const AppBar = ({ handleDrawerOpen, drawerWidth, open }) => {
           edge="start"
           sx={{
             marginRight: 5,
+            display: `${open ? 'none' : 'block'}`,
           }}
         >
-          {open ? <LuCircleDot /> : <BiCircle />}
+          <LuCircleDot />
         </IconButton>
         <Typography
           variant="h6"

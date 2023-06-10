@@ -9,6 +9,9 @@ import AppBar from './app-bar';
 import LeftSideBar from './left-side-drawer';
 import Image from 'next/image';
 import logoImage from '../../assets/img/demo-logo.png';
+import { useEffect } from 'react';
+import { BiCircle } from 'react-icons/bi';
+import { IconButton } from '@mui/material';
 
 const drawerWidth = 270;
 
@@ -33,15 +36,6 @@ const closedMixin = (theme) => ({
   },
 });
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -61,18 +55,38 @@ const Drawer = styled(MuiDrawer, {
 
 export default function LeftSideDrawer({ children }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen((prev) => !prev);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen((prev) => !prev);
-  };
+  const [open, setOpen] = React.useState(true);
   const [activeModule, setActiveModule] = React.useState([]);
   const [activeSubModule, setActiveSubModule] = React.useState([]);
   const [activeInnerSubModule, setActiveInnerSubModule] = React.useState([]);
+  const [sideBarPosition, setSideBarPosition] = React.useState(false);
+  const [width, setWidth] = React.useState(window.innerWidth);
+
+  const widthFunc = React.useCallback(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      widthFunc();
+      setOpen(false);
+    };
+
+    if (width < 960 && open) {
+      setSideBarPosition(true);
+    } else {
+      setSideBarPosition(false);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [width, open, widthFunc]);
+  const handleDrawerOpen = () => {
+    setOpen((prev) => !prev);
+  };
 
   const handleActiveModule = (name) => {
     console.log({ name });
@@ -113,6 +127,7 @@ export default function LeftSideDrawer({ children }) {
       <Drawer
         variant="permanent"
         open={open}
+        sx={{ position: `${sideBarPosition ? 'fixed' : 'inherit'}`, zIndex: 2 }}
         className="drawer-main-section"
         PaperProps={{
           sx: {
@@ -121,9 +136,26 @@ export default function LeftSideDrawer({ children }) {
         }}
       >
         <Box
-          sx={{ minHeight: '62px', display: 'flex', justifyContent: 'center' }}
+          sx={{
+            minHeight: '62px',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
         >
           <Image src={logoImage} alt="logo" width={220} height={62} />
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              padding: 1,
+              color: '#fff',
+              display: `${open ? 'block' : 'none'}`,
+            }}
+          >
+            <BiCircle />
+          </IconButton>
         </Box>
         <Divider sx={{ borderColor: '#cbcbcb1f' }} />
         <LeftSideBar
@@ -137,8 +169,10 @@ export default function LeftSideDrawer({ children }) {
         />
         <Divider sx={{ borderColor: '#cbcbcb1f' }} />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {/* <DrawerHeader className="drawer-header" /> */}
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 3, mt: 8, background: '#f8f7fa' }}
+      >
         {children}
       </Box>
     </Box>

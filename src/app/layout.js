@@ -1,7 +1,7 @@
 import LeftSideDrawer from '@/components/layout/layout';
 import './globals.css';
+import '../assets/care-plus-admin-main.scss';
 import { Inter } from 'next/font/google';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
