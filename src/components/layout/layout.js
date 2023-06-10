@@ -72,6 +72,7 @@ export default function LeftSideDrawer({ children }) {
   };
   const [activeModule, setActiveModule] = React.useState([]);
   const [activeSubModule, setActiveSubModule] = React.useState([]);
+  const [activeInnerSubModule, setActiveInnerSubModule] = React.useState([]);
 
   const handleActiveModule = (name) => {
     console.log({ name });
@@ -81,6 +82,7 @@ export default function LeftSideDrawer({ children }) {
       setActiveModule([name]);
     }
     setActiveSubModule([]);
+    setActiveInnerSubModule([]);
   };
 
   const handleActiveSubModule = (name) => {
@@ -89,6 +91,14 @@ export default function LeftSideDrawer({ children }) {
       setActiveSubModule([]);
     } else {
       setActiveSubModule([name]);
+    }
+  };
+  const handleActiveInnerSubModule = (name) => {
+    console.log({ name });
+    if (activeInnerSubModule.includes(name)) {
+      setActiveInnerSubModule([]);
+    } else {
+      setActiveInnerSubModule([name]);
     }
   };
 
@@ -110,9 +120,11 @@ export default function LeftSideDrawer({ children }) {
           },
         }}
       >
-        <DrawerHeader>
-          <Image src={logoImage} alt="logo" width={220} />
-        </DrawerHeader>
+        <Box
+          sx={{ minHeight: '62px', display: 'flex', justifyContent: 'center' }}
+        >
+          <Image src={logoImage} alt="logo" width={220} height={62} />
+        </Box>
         <Divider sx={{ borderColor: '#cbcbcb1f' }} />
         <LeftSideBar
           open={open}
@@ -120,6 +132,8 @@ export default function LeftSideDrawer({ children }) {
           activeSubModule={activeSubModule}
           handleActiveModule={handleActiveModule}
           handleActiveSubModule={handleActiveSubModule}
+          handleActiveInnerSubModule={handleActiveInnerSubModule}
+          activeInnerSubModule={activeInnerSubModule}
         />
         <Divider sx={{ borderColor: '#cbcbcb1f' }} />
       </Drawer>

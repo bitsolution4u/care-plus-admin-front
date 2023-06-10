@@ -1,60 +1,63 @@
+import { BsArrowRightCircle, BsArrowRightShort } from 'react-icons/bs';
+import { FaProductHunt } from 'react-icons/fa';
+
 export const productModule = [
   {
-    icon: 'tabler:chart-pie-2',
+    icon: <FaProductHunt />,
     module: 'Online Whole Sale Order',
     subModule: [
       {
-        icon: 'tabler:chart-pie-2',
+        icon: <BsArrowRightCircle />,
         subModuleName: 'Online Whole Sale Order',
         innerSubModule: [
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Brand & Group',
             link: '/brand-group',
           },
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Model & Size',
             link: '/model-size',
           },
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Unit & Origin',
             link: '/unit-origin',
           },
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Type & Sub Type',
             link: '/type-subtype',
           },
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Print Delivery Address',
             link: '/type-subtype',
           },
         ],
       },
       {
-        icon: 'tabler:chart-pie-2',
+        icon: <BsArrowRightCircle />,
         subModuleName: 'Medicine',
         innerSubModule: [
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Brand & Group',
             link: '/brand-group',
           },
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Model & Size',
             link: '/model-size',
           },
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Unit & Origin',
             link: '/unit-origin',
           },
           {
-            icon: 'tabler:chart-pie-2',
+            icon: <BsArrowRightShort />,
             innerName: 'Type & Sub Type',
             link: '/type-subtype',
           },

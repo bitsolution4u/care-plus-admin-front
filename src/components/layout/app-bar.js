@@ -1,7 +1,6 @@
 'use client';
 import { IconButton, Toolbar, Typography } from '@mui/material';
 import React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar from '@mui/material/AppBar';
 import { styled, useTheme } from '@mui/material/styles';
 import { BiCircle } from 'react-icons/bi';

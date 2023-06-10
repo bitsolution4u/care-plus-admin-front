@@ -8,16 +8,9 @@ import {
   ListItemText,
 } from '@mui/material';
 import React from 'react';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Collapse from '@mui/material/Collapse';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import useSidebar from './sidebar/useSidebar';
 
 export default function LeftSideBar({
@@ -26,9 +19,11 @@ export default function LeftSideBar({
   activeSubModule,
   handleActiveModule,
   handleActiveSubModule,
+  activeInnerSubModule,
+  handleActiveInnerSubModule,
 }) {
   const { sidebarItems } = useSidebar();
-
+  console.log({ activeInnerSubModule });
   return (
     <>
       <Divider />
@@ -54,9 +49,10 @@ export default function LeftSideBar({
                   color: `${
                     activeModule.includes(listItem.module) ? '#fff' : '#959595'
                   }`,
+                  fontSize: '1.2em',
                 }}
               >
-                <InboxIcon />
+                {listItem.icon}
               </ListItemIcon>
               <ListItemText primary={listItem.module} />
               {listItem.subModule.length > 0 && (
@@ -105,17 +101,10 @@ export default function LeftSideBar({
                               ? '#fff'
                               : '#959595'
                           }`,
+                          fontSize: '.9em',
                         }}
                       >
-                        <StarBorder
-                          sx={{
-                            color: `${
-                              activeSubModule.includes(item.subModuleName)
-                                ? '#fff'
-                                : '#959595'
-                            }`,
-                          }}
-                        />
+                        {item.icon}
                       </ListItemIcon>
                       <ListItemText primary={item.subModuleName} />
                       {item.innerSubModule.length > 0 && (
@@ -139,13 +128,46 @@ export default function LeftSideBar({
                           <List
                             component="div"
                             disablePadding
-                            sx={{ color: '#959595' }}
+                            sx={{
+                              color: `${
+                                activeInnerSubModule.includes(
+                                  innerItem.innerName
+                                )
+                                  ? '#fff'
+                                  : '#959595'
+                              }`,
+                            }}
                           >
-                            <ListItemButton sx={{ pl: 5 }}>
+                            <ListItemButton
+                              sx={{ pl: 5 }}
+                              onClick={() =>
+                                handleActiveInnerSubModule(innerItem.innerName)
+                              }
+                            >
                               <ListItemIcon
-                                sx={{ minWidth: `${open ? '30px' : '56px'}` }}
+                                sx={{
+                                  minWidth: `${open ? '30px' : '56px'}`,
+                                  color: `${
+                                    activeInnerSubModule.includes(
+                                      innerItem.innerName
+                                    )
+                                      ? '#fff'
+                                      : '#959595'
+                                  }`,
+                                }}
                               >
-                                <InboxIcon sx={{ color: '#959595' }} />
+                                {/* <InboxIcon
+                                  sx={{
+                                    color: `${
+                                      activeInnerSubModule.includes(
+                                        innerItem.innerName
+                                      )
+                                        ? '#fff'
+                                        : '#959595'
+                                    }`,
+                                  }}
+                                /> */}
+                                {innerItem.icon}
                               </ListItemIcon>
                               <ListItemText primary={innerItem.innerName} />
                             </ListItemButton>

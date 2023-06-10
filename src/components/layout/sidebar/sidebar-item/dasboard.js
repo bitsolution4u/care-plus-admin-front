@@ -1,22 +1,26 @@
+import { MdDashboard } from 'react-icons/md';
+import { RiSettings2Fill } from 'react-icons/ri';
+import { BsArrowRightCircle } from 'react-icons/bs';
+
 export const dashboardModule = [
   {
-    icon: 'tabler:chart-pie-2',
+    icon: <MdDashboard />,
     module: 'Dashboard',
     link: '/dashboard',
     subModule: [],
   },
   {
-    icon: 'tabler:chart-pie-2',
+    icon: <RiSettings2Fill />,
     module: 'Configuration',
     subModule: [
       {
-        icon: 'tabler:chart-pie-2',
+        icon: <BsArrowRightCircle />,
         subModuleName: 'Shop Type',
         link: '/shop-type',
         innerSubModule: [],
       },
       {
-        icon: 'tabler:chart-pie-2',
+        icon: <BsArrowRightCircle />,
         subModuleName: 'Service Type',
         link: '/service-type',
         innerSubModule: [],
