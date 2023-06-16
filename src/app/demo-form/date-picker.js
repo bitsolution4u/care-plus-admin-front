@@ -9,8 +9,8 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 
 export default function DatePickerTypes() {
   return (
-    <div>
-      <div>
+    <div className="demo-form-main-page">
+      <div className="form-grid-shadow">
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={4}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
