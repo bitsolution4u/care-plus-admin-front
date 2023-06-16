@@ -60,7 +60,7 @@ export default function LeftSideDrawer({ children }) {
   const [activeSubModule, setActiveSubModule] = React.useState([]);
   const [activeInnerSubModule, setActiveInnerSubModule] = React.useState([]);
   const [sideBarPosition, setSideBarPosition] = React.useState(false);
-  const [width, setWidth] = React.useState(window.innerWidth);
+  const [width, setWidth] = React.useState(window?.innerWidth);
 
   const widthFunc = React.useCallback(() => {
     setWidth(window.innerWidth);
@@ -89,7 +89,6 @@ export default function LeftSideDrawer({ children }) {
   };
 
   const handleActiveModule = (name) => {
-    console.log({ name });
     if (activeModule.includes(name)) {
       setActiveModule([]);
     } else {
@@ -100,7 +99,6 @@ export default function LeftSideDrawer({ children }) {
   };
 
   const handleActiveSubModule = (name) => {
-    console.log({ name });
     if (activeSubModule.includes(name)) {
       setActiveSubModule([]);
     } else {
@@ -108,7 +106,6 @@ export default function LeftSideDrawer({ children }) {
     }
   };
   const handleActiveInnerSubModule = (name) => {
-    console.log({ name });
     if (activeInnerSubModule.includes(name)) {
       setActiveInnerSubModule([]);
     } else {

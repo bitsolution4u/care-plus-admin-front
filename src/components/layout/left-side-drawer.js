@@ -23,7 +23,7 @@ export default function LeftSideBar({
   handleActiveInnerSubModule,
 }) {
   const { sidebarItems } = useSidebar();
-  console.log({ activeInnerSubModule });
+
   return (
     <>
       <Divider />

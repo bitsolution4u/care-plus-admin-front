@@ -7,6 +7,8 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
+  MenuItem,
+  Select,
   TextField,
 } from '@mui/material';
 import React from 'react';
@@ -20,6 +22,13 @@ const DemoFormPage = () => {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  // multi select
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
   };
   return (
     <div className="demo-form-main-page">
@@ -39,6 +48,13 @@ const DemoFormPage = () => {
                 '& .MuiInputBase-root': {
                   borderRadius: '10px',
                 },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#000',
+                },
+                '& .MuiFormLabel-root': {
+                  fontSize: '1.2em',
+                  color: 'red',
+                },
                 marginBottom: 2,
                 borderRadius: 5,
               }}
@@ -52,8 +68,12 @@ const DemoFormPage = () => {
               sx={{
                 marginBottom: 2,
                 borderRadius: 5,
+                '& .MuiInputBase-root': {
+                  backgroundColor: '#acbbe582',
+                },
               }}
             />
+
             <TextField
               id="standard-basic"
               label="Standard"
@@ -63,13 +83,16 @@ const DemoFormPage = () => {
               sx={{
                 marginBottom: 2,
                 borderRadius: 5,
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#000',
+                },
               }}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <TextField
               id="outlined-basic"
-              label="Outlined"
+              label="Input color changed"
               size="small"
               variant="outlined"
               InputProps={{
@@ -81,6 +104,12 @@ const DemoFormPage = () => {
               sx={{
                 marginBottom: 2,
                 borderRadius: 5,
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#000',
+                },
+                '& .MuiInputBase-input': {
+                  color: 'red',
+                },
               }}
             />
             <TextField
@@ -264,47 +293,73 @@ const DemoFormPage = () => {
                 padding: '1.2em',
               }}
             >
-              <TextField
-                id="outlined-basic"
-                label="Outlined"
-                fullWidth
-                size="small"
-                variant="outlined"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">$</InputAdornment>
-                  ),
-                }}
-                sx={{
-                  '& .MuiInputBase-root': {
+              <FormControl variant="standard" sx={{ m: 1, width: '100%' }}>
+                <InputLabel id="demo-simple-select-standard-label">
+                  Age
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={age}
+                  onChange={handleChange}
+                  label="Age"
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl variant="filled" sx={{ m: 1, width: '100%' }}>
+                <InputLabel id="demo-simple-select-filled-label">
+                  Age
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-filled-label"
+                  id="demo-simple-select-filled"
+                  value={age}
+                  onChange={handleChange}
+                  size="small"
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl sx={{ m: 1, width: '100%' }}>
+                <InputLabel
+                  sx={{ top: '-7px' }}
+                  id="demo-simple-select-helper-label"
+                >
+                  Age
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={age}
+                  label="Age"
+                  size="small"
+                  sx={{
                     borderRadius: '10px',
-                  },
-                  marginBottom: 2,
-                  borderRadius: 5,
-                }}
-              />
-              <TextField
-                id="filled-basic"
-                label="Filled"
-                fullWidth
-                size="small"
-                variant="filled"
-                sx={{
-                  marginBottom: 2,
-                  borderRadius: 5,
-                }}
-              />
-              <TextField
-                id="standard-basic"
-                label="Standard"
-                size="small"
-                variant="standard"
-                fullWidth
-                sx={{
-                  marginBottom: 2,
-                  borderRadius: 5,
-                }}
-              />
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#000',
+                    },
+                  }}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
             </Box>
           </Grid>
           <Grid
@@ -351,17 +406,25 @@ const DemoFormPage = () => {
                   borderRadius: 5,
                 }}
               />
-              <TextField
-                id="standard-basic"
-                label="Standard"
-                fullWidth
-                size="small"
-                variant="standard"
-                sx={{
-                  marginBottom: 2,
-                  borderRadius: 5,
-                }}
-              />
+              <FormControl sx={{ width: '100%' }}>
+                <InputLabel id="demo-simple-select-helper-label">
+                  Age
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={age}
+                  label="Age"
+                  onChange={handleChange}
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
             </Box>
           </Grid>
           <Grid
