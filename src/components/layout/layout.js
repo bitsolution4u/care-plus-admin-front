@@ -60,7 +60,9 @@ export default function LeftSideDrawer({ children }) {
   const [activeSubModule, setActiveSubModule] = React.useState([]);
   const [activeInnerSubModule, setActiveInnerSubModule] = React.useState([]);
   const [sideBarPosition, setSideBarPosition] = React.useState(false);
-  const [width, setWidth] = React.useState(window?.innerWidth);
+  const [width, setWidth] = React.useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
 
   const widthFunc = React.useCallback(() => {
     setWidth(window.innerWidth);

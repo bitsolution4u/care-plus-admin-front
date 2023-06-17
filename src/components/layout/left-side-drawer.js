@@ -12,6 +12,7 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import useSidebar from './sidebar/useSidebar';
+import Link from 'next/link';
 
 export default function LeftSideBar({
   open,
@@ -30,41 +31,45 @@ export default function LeftSideBar({
       <List sx={{ marginTop: 2 }}>
         {sidebarItems.map((listItem, i) => (
           <ListItem key={i} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              onClick={() => handleActiveModule(listItem.module)}
-              className="top-button"
-              sx={{
-                background: `${
-                  activeModule.includes(listItem.module) ? '#212929a6 ' : ''
-                }`,
-                color: `${
-                  activeModule.includes(listItem.module) ? '#fff' : '#959595'
-                }`,
-              }}
-            >
-              <ListItemIcon
-                className="btn-icon"
+            <Link href={listItem.link}>
+              <ListItemButton
+                onClick={() => handleActiveModule(listItem.module)}
+                className="top-button"
                 sx={{
-                  minWidth: `${open ? '30px' : '56px'}`,
+                  background: `${
+                    activeModule.includes(listItem.module) ? '#212929a6 ' : ''
+                  }`,
                   color: `${
                     activeModule.includes(listItem.module) ? '#fff' : '#959595'
                   }`,
-                  fontSize: '1.2em',
                 }}
               >
-                {listItem.icon}
-              </ListItemIcon>
-              <ListItemText primary={listItem.module} />
-              {listItem.subModule.length > 0 && (
-                <>
-                  {activeModule.includes(listItem.module) ? (
-                    <ExpandMore />
-                  ) : (
-                    <ExpandLess sx={{ transform: 'rotate(90deg)' }} />
-                  )}
-                </>
-              )}
-            </ListItemButton>
+                <ListItemIcon
+                  className="btn-icon"
+                  sx={{
+                    minWidth: `${open ? '30px' : '56px'}`,
+                    color: `${
+                      activeModule.includes(listItem.module)
+                        ? '#fff'
+                        : '#959595'
+                    }`,
+                    fontSize: '1.2em',
+                  }}
+                >
+                  {listItem.icon}
+                </ListItemIcon>
+                <ListItemText primary={listItem.module} />
+                {listItem.subModule.length > 0 && (
+                  <>
+                    {activeModule.includes(listItem.module) ? (
+                      <ExpandMore />
+                    ) : (
+                      <ExpandLess sx={{ transform: 'rotate(90deg)' }} />
+                    )}
+                  </>
+                )}
+              </ListItemButton>
+            </Link>
             {listItem.subModule.length > 0 &&
               listItem.subModule.map((item, j) => (
                 <Collapse
@@ -156,17 +161,6 @@ export default function LeftSideBar({
                                   }`,
                                 }}
                               >
-                                {/* <InboxIcon
-                                  sx={{
-                                    color: `${
-                                      activeInnerSubModule.includes(
-                                        innerItem.innerName
-                                      )
-                                        ? '#fff'
-                                        : '#959595'
-                                    }`,
-                                  }}
-                                /> */}
                                 {innerItem.icon}
                               </ListItemIcon>
                               <ListItemText primary={innerItem.innerName} />

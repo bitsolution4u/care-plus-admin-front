@@ -5,6 +5,7 @@ export const productModule = [
   {
     icon: <FaProductHunt />,
     module: 'Online Whole Sale Order',
+    link: '/',
     subModule: [
       {
         icon: <BsArrowRightCircle />,

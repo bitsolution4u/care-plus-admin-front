@@ -18,7 +18,7 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
   '& .MuiInputBase-root': {
     borderRadius: 8,
     backgroundColor: 'transparent !important',
-    border: `1px solid rgba(${theme.palette.error.main}, 0.2)`,
+    border: `1px solid #2f2b3d33`,
     transition: theme.transitions.create(['border-color', 'box-shadow'], {
       duration: theme.transitions.duration.shorter,
     }),

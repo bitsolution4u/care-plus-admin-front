@@ -1,6 +1,8 @@
 'use client';
+import { Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 const colourOptions = [
   { value: 'red', label: 'Red' },
@@ -14,22 +16,35 @@ const colourOptions = [
 const SelectTo = () => {
   const [isClearable, setIsClearable] = useState(true);
   const [isSearchable, setIsSearchable] = useState(true);
+  const animatedComponents = makeAnimated();
   return (
     <div className="demo-form-main-page">
       <div className="form-grid-shadow">
-        <Select
-          className="basic-single"
-          classNamePrefix="select"
-          defaultValue={colourOptions[0]}
-          /* isDisabled={isDisabled}
-          isLoading={isLoading}
-          
-          isRtl={isRtl}  */
-          isClearable={isClearable}
-          isSearchable={isSearchable}
-          name="color"
-          options={colourOptions}
-        />
+        <Typography variant="h5" component="p">
+          Select to component
+        </Typography>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              defaultValue={colourOptions[0]}
+              isClearable={isClearable}
+              isSearchable={isSearchable}
+              name="color"
+              options={colourOptions}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Select
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              defaultValue={[colourOptions[0], colourOptions[3]]}
+              isMulti
+              options={colourOptions}
+            />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

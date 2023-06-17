@@ -1,5 +1,5 @@
 'use client';
-
+import CustomTextField from 'src/@core/components/mui/text-field';
 import {
   Box,
   Button,
@@ -12,7 +12,6 @@ import {
   InputLabel,
   Radio,
   RadioGroup,
-  TextField,
   Typography,
 } from '@mui/material';
 import { blue, green, pink } from '@mui/material/colors';
@@ -43,7 +42,8 @@ const TextOnTopForm = () => {
               >
                 Multiline
               </InputLabel>
-              <TextField
+              <CustomTextField
+                fullWidth
                 id="outlined-textarea"
                 placeholder="Placeholder"
                 size="small"
@@ -61,7 +61,8 @@ const TextOnTopForm = () => {
               >
                 Multiline
               </InputLabel>
-              <TextField
+              <CustomTextField
+                fullWidth
                 id="outlined-textarea"
                 placeholder="Placeholder"
                 size="small"
@@ -79,7 +80,8 @@ const TextOnTopForm = () => {
               >
                 Multiline
               </InputLabel>
-              <TextField
+              <CustomTextField
+                fullWidth
                 id="outlined-textarea"
                 placeholder="Placeholder"
                 size="small"
@@ -94,7 +96,8 @@ const TextOnTopForm = () => {
               >
                 Multiline
               </InputLabel>
-              <TextField
+              <CustomTextField
+                fullWidth
                 id="outlined-textarea"
                 placeholder="Placeholder"
                 size="small"
@@ -107,7 +110,8 @@ const TextOnTopForm = () => {
               >
                 Multiline
               </InputLabel>
-              <TextField
+              <CustomTextField
+                fullWidth
                 id="outlined-textarea"
                 placeholder="Placeholder"
                 size="small"
@@ -120,7 +124,8 @@ const TextOnTopForm = () => {
               >
                 Multiline
               </InputLabel>
-              <TextField
+              <CustomTextField
+                fullWidth
                 id="outlined-textarea"
                 placeholder="Placeholder"
                 size="small"

@@ -9,11 +9,11 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextField,
 } from '@mui/material';
 import React from 'react';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import CustomTextField from 'src/@core/components/mui/text-field';
 
 const DemoFormPage = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -35,7 +35,7 @@ const DemoFormPage = () => {
       <Box className="two-grid-form form-grid-shadow">
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
-            <TextField
+            <CustomTextField
               id="outlined-basic"
               label="Outlined"
               fullWidth
@@ -45,21 +45,11 @@ const DemoFormPage = () => {
                 endAdornment: <InputAdornment position="end">$</InputAdornment>,
               }}
               sx={{
-                '& .MuiInputBase-root': {
-                  borderRadius: '10px',
-                },
-                '& .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#000',
-                },
-                '& .MuiFormLabel-root': {
-                  fontSize: '1.2em',
-                  color: 'red',
-                },
                 marginBottom: 2,
                 borderRadius: 5,
               }}
             />
-            <TextField
+            <CustomTextField
               id="filled-basic"
               label="Filled"
               fullWidth
@@ -74,7 +64,7 @@ const DemoFormPage = () => {
               }}
             />
 
-            <TextField
+            <CustomTextField
               id="standard-basic"
               label="Standard"
               size="small"
@@ -90,7 +80,7 @@ const DemoFormPage = () => {
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <TextField
+            <CustomTextField
               id="outlined-basic"
               label="Input color changed"
               size="small"
@@ -112,7 +102,7 @@ const DemoFormPage = () => {
                 },
               }}
             />
-            <TextField
+            <CustomTextField
               id="filled-basic"
               label="Filled"
               size="small"
@@ -123,7 +113,7 @@ const DemoFormPage = () => {
                 borderRadius: 5,
               }}
             />
-            <TextField
+            <CustomTextField
               id="standard-basic"
               label="Standard"
               fullWidth
@@ -140,7 +130,7 @@ const DemoFormPage = () => {
       <Box className="three-grid-form form-grid-shadow">
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={4}>
-            <TextField
+            <CustomTextField
               id="outlined-basic"
               label="Outlined"
               fullWidth
@@ -157,7 +147,7 @@ const DemoFormPage = () => {
                 borderRadius: 5,
               }}
             />
-            <TextField
+            <CustomTextField
               id="filled-basic"
               label="Filled"
               fullWidth
@@ -168,7 +158,7 @@ const DemoFormPage = () => {
                 borderRadius: 5,
               }}
             />
-            <TextField
+            <CustomTextField
               id="standard-basic"
               label="Standard"
               size="small"
@@ -181,7 +171,7 @@ const DemoFormPage = () => {
             />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <TextField
+            <CustomTextField
               id="outlined-basic"
               label="Outlined"
               size="small"
@@ -197,7 +187,7 @@ const DemoFormPage = () => {
                 borderRadius: 5,
               }}
             />
-            <TextField
+            <CustomTextField
               id="filled-basic"
               label="Filled"
               size="small"
@@ -208,7 +198,7 @@ const DemoFormPage = () => {
                 borderRadius: 5,
               }}
             />
-            <TextField
+            <CustomTextField
               id="standard-basic"
               label="Standard"
               fullWidth
@@ -221,7 +211,7 @@ const DemoFormPage = () => {
             />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <TextField
+            <CustomTextField
               id="outlined-basic"
               label="Outlined"
               size="small"
@@ -260,7 +250,7 @@ const DemoFormPage = () => {
                 }
               />
             </FormControl>
-            <TextField
+            <CustomTextField
               id="standard-basic"
               label="Standard"
               fullWidth
@@ -379,7 +369,7 @@ const DemoFormPage = () => {
                 padding: '1.2em',
               }}
             >
-              <TextField
+              <CustomTextField
                 id="outlined-basic"
                 label="Outlined"
                 size="small"
@@ -395,7 +385,7 @@ const DemoFormPage = () => {
                   borderRadius: 5,
                 }}
               />
-              <TextField
+              <CustomTextField
                 id="filled-basic"
                 label="Filled"
                 size="small"
@@ -445,7 +435,7 @@ const DemoFormPage = () => {
                 borderRadius: '6px',
               }}
             >
-              <TextField
+              <CustomTextField
                 id="outlined-basic"
                 label="Outlined"
                 size="small"
@@ -484,7 +474,7 @@ const DemoFormPage = () => {
                   }
                 />
               </FormControl>
-              <TextField
+              <CustomTextField
                 id="standard-basic"
                 label="Standard"
                 fullWidth
