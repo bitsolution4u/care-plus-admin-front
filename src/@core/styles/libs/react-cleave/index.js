@@ -1,6 +1,6 @@
 // ** MUI Imports
-import { styled } from '@mui/material/styles'
-import Box from '@mui/material/Box'
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
 const CleaveWrapper = styled(Box)(({ theme }) => ({
   '& input': {
@@ -12,24 +12,26 @@ const CleaveWrapper = styled(Box)(({ theme }) => ({
     borderRadius: theme.shape.borderRadius,
     fontSize: theme.typography.body1.fontSize,
     fontFamily: theme.typography.body1.fontFamily,
-    border: `1px solid rgba(${theme.palette.customColors.main}, 0.2)`,
+    border: `1px solid rgba(172, 172, 172, 1)`,
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:hover': {
-      borderColor: `rgba(${theme.palette.customColors.main}, 0.28)`
+      borderColor: `rgba(240, 240, 240, 0.63)`,
     },
     '&:focus, &:focus-visible': {
       outline: 0,
       boxShadow: theme.shadows[2],
       borderColor: `${theme.palette.primary.main} !important`,
       '&::placeholder': {
-        transform: 'translateX(4px)'
-      }
+        transform: 'translateX(4px)',
+      },
     },
     '&::placeholder': {
       opacity: 0.42,
-      transition: theme.transitions.create(['transform'], { duration: theme.transitions.duration.shorter })
-    }
-  }
-}))
+      transition: theme.transitions.create(['transform'], {
+        duration: theme.transitions.duration.shorter,
+      }),
+    },
+  },
+}));
 
-export default CleaveWrapper
+export default CleaveWrapper;

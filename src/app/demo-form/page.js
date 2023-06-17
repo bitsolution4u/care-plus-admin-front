@@ -1,11 +1,15 @@
 import React from 'react';
-import DemoFormPage from './form-format';
-import DatePickerTypes from './date-picker';
-import SideTitleForm from './title-on-side-form';
-import TextOnTopForm from './text-on-top-form';
+
+import DatePickerTypes from './date-picker/date-picker';
+
 import PhotEditorMain from './photo-editor';
 import ModalAndDialogBox from './modal-and-dialog';
 import SelectTo from './selec-to';
+import DemoFormPage from './form/form-format';
+import SideTitleForm from './form/title-on-side-form';
+import TextOnTopForm from './form/text-on-top-form';
+import InputMask from './input-mask';
+import CustomInputs from './custom-inputs';
 
 const page = () => {
   return (
@@ -16,6 +20,8 @@ const page = () => {
       <PhotEditorMain />
       <DatePickerTypes />
       <SelectTo />
+      <InputMask />
+      <CustomInputs />
       <ModalAndDialogBox />
     </div>
   );
